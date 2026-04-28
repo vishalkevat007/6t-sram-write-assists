@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<setupdb version="7">maestro
+	<active>Active Setup
+		<jobcontrolmode>ICRP</jobcontrolmode>
+		<corners>
+			<corner enabled="1">_default</corner>
+		</corners>
+		<sharedvarinfo></sharedvarinfo>
+		<overwritehistory>0</overwritehistory>
+		<tests>
+			<test>AVD_Project_6t_sram_smoo_tb_1
+				<tool>ADE</tool>
+				<tooloptions>
+					<option>cell
+						<value>6t_sram_smoo_tb</value>
+					</option>
+					<option>lib
+						<value>AVD_Project</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>schematic</value>
+					</option>
+					<option>state
+						<value>active</value>
+					</option>
+				</tooloptions>
+				<vars>
+					<var>PW
+						<value>8p</value>
+					</var>
+					<var>Vdd_col
+						<value>0.5</value>
+					</var>
+					<var>BL_Vdd
+						<value>Vdd_main</value>
+					</var>
+					<var>BLB_Vdd
+						<value>0</value>
+					</var>
+					<var>WL_Vdd
+						<value>Vdd_main</value>
+					</var>
+					<var>Vdd_main
+						<value>1</value>
+					</var>
+				</vars>
+				<outputs>
+					<output>((finalValue (V "/Q")) &gt; (VDD / 2))
+						<evalType>point</evalType>
+					</output>
+					<output>((finalValue (V "/Q")) &gt; (Vdd / 2))
+						<evalType>point</evalType>
+					</output>
+					<output>((finalValue (V "/i6t_sram/Q")) &gt; (Vdd / 2))
+						<evalType>point</evalType>
+					</output>
+					<output>nil
+						<evalType>point</evalType>
+					</output>
+					<output>((value(VT("/i6t_sram/Q") 6e-10) &gt; 0.9) ? (1:0))
+						<evalType>point</evalType>
+					</output>
+					<output>if((value(VT("/i6t_sram/Q") 6e-10) &gt; 0.9) then 1 else 0)
+						<evalType>point</evalType>
+					</output>
+					<output>if((value(VT("/i6t_sram/Q") 6e-10) &gt; VAR("VDd")) then 1 else 0)
+						<evalType>point</evalType>
+					</output>
+					<output>if((value(VT("/i6t_sram/Q") 6e-10) &gt; VAR("Vdd")) then 1 else 0)
+						<evalType>point</evalType>
+					</output>
+					<output>if((value(VT("/i6t_sram/Q") 6e-10) &gt; (0.9 * VAR("Vdd"))) then 1 else 0)
+						<evalType>point</evalType>
+					</output>
+					<output>if((value(VT("/i6t_sram/Q") 6e-10) &gt;= (0.9 * VAR("Vdd"))) then 1 else 0)
+						<evalType>point</evalType>
+					</output>
+					<output>Pass2
+						<evalType>point</evalType>
+					</output>
+					<output>Vdd_col
+						<evalType>point</evalType>
+					</output>
+					<output>PW
+						<evalType>point</evalType>
+					</output>
+					<output>BLB_Vdd
+						<evalType>point</evalType>
+					</output>
+					<output>WL_Fall
+						<evalType>point</evalType>
+					</output>
+					<output>cross((VT("/Q") - VT("/QB")) 0 1 "either")
+						<evalType>point</evalType>
+					</output>
+					<output>TimeCross
+						<evalType>point</evalType>
+					</output>
+					<output>value(VT("/Q") (cross(VT("/WL") (VAR("Vdd") * 0.5) 1 "falling") + 1e-10))
+						<evalType>point</evalType>
+					</output>
+					<output>VQ_Final
+						<evalType>point</evalType>
+					</output>
+					<output>Pass
+						<evalType>point</evalType>
+					</output>
+					<output>Vdd_main
+						<evalType>point</evalType>
+					</output>
+				</outputs>
+			</test>
+		</tests>
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<currentmode>Single Run, Sweeps and Corners</currentmode>
+		<checksasserts netlist="0">
+			<test netlist="0" netlistscope="all">AVD_Project_6t_sram_smoo_tb_1</test>
+			<test netlist="0" netlistscope="all">AVD_Project_6t_sram_smoo_tb_1_1</test>
+		</checksasserts>
+		<plottingoptions>
+			<plottingoption>waveformtemplate
+				<value>(None)</value>
+			</plottingoption>
+			<plottingoption>plottingmode
+				<value>Replace</value>
+			</plottingoption>
+			<plottingoption>plottype
+				<value>None</value>
+			</plottingoption>
+			<plottingoption>usewaveformtemplate
+				<value>no</value>
+			</plottingoption>
+			<plottingoption>useMaestroPlottingTemplate
+				<value>yes</value>
+			</plottingoption>
+			<plottingoption>allplottingtemplates
+				<value></value>
+			</plottingoption>
+			<plottingoption>defaultplottingtemplate
+				<value></value>
+			</plottingoption>
+			<plottingoption>distributedplot_enabled
+				<value>no</value>
+			</plottingoption>
+		</plottingoptions>
+		<exploreroptions>
+			<exploreroption>waveformtemplate
+				<value>(None)</value>
+			</exploreroption>
+		</exploreroptions>
+		<incrementalsimsetup>
+			<useincremental>0</useincremental>
+			<reusenetlist>0</reusenetlist>
+			<reusesaverunhist>0</reusesaverunhist>
+			<copyreferenceresults>1</copyreferenceresults>
+		</incrementalsimsetup>
+		<overwritehistoryname>ExplorerRun.0</overwritehistoryname>
+		<incrementalsimulationoptions>
+			<incrementalSimulation>0</incrementalSimulation>
+		</incrementalsimulationoptions>
+		<jobpolicyname>Maestro Default</jobpolicyname>
+		<disabledtests></disabledtests>
+	</active>
+	<history>History
+	</history>
+</setupdb>

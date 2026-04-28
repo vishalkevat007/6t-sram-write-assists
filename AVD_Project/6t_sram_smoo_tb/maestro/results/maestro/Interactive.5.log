@@ -1,0 +1,16 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Mon Apr 13 23:59:32 2026 
+Best design point: 1
+Design specs: 
+	AVD_Project_6t_sram_smoo_tb_1	corner	Nominal - 
+	Vdd		600m
+	PW		10p
+	Pass		1
+Design parameters: 
+
+Interactive.5
+Number of points completed: 30
+Number of simulation errors: 0
+Interactive.5 completed. 
+Current time: Tue Apr 14 00:00:33 2026 

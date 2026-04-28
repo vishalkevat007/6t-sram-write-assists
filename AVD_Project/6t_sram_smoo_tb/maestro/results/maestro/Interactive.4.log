@@ -1,0 +1,14 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Mon Apr 13 23:20:59 2026 
+Best design point: 19
+Design specs: 
+	AVD_Project_6t_sram_smoo_tb_1	corner	Nominal - 
+	if((value(VT("/i6t_sram/Q") 5e-10) >= (0.9 * VAR("Vdd"))) then 1 else 0)		1
+Design parameters: 
+
+Interactive.4
+Number of points completed: 55
+Number of simulation errors: 0
+Interactive.4 completed. 
+Current time: Mon Apr 13 23:23:10 2026 
