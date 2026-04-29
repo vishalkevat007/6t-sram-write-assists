@@ -1,0 +1,97 @@
+% ============================
+% Shmoo Plot Command (FINAL)
+% ============================
+%
+% Usage:
+% \ShmooPlot
+% {csv file}
+% {num_x_points}
+% {num_y_points}
+% {x_tick_labels}
+% {y_tick_labels}
+% {x_label}
+% {y_label}
+% {label}
+% {caption}
+%
+% ----------------------------
+% Argument Description:
+%
+% #1 = CSV file name
+% #2 = Number of X-axis points
+% #3 = Number of Y-axis points
+% #4 = X-axis tick labels
+% #5 = Y-axis tick labels
+% #6 = X-axis label
+% #7 = Y-axis label
+% #8 = Figure label
+%      Example: fig:baseline_shmoo
+%      If passed as {} then no label is added
+% #9 = Figure caption
+%
+% ============================
+
+\usepackage{pgfplots}
+\usepackage{xparse}
+\usepackage{xfp}
+\pgfplotsset{compat=1.18}
+\usepackage{etoolbox}
+
+\NewDocumentCommand{\ShmooPlot}{m m m m m m m m m}{%
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=8.5cm,
+    height=8cm,
+    xlabel={#6},
+    ylabel={#7},
+    xmin=0.5,
+    xmax=\fpeval{#2+0.5},
+    ymin=0.5,
+    ymax=\fpeval{#3+0.5},
+    enlargelimits=false,
+    axis on top,
+    xtick={1,...,#2},
+    xticklabels={#4},
+    xticklabel style={
+        rotate=45,
+        anchor=center,
+        xshift=-6pt,
+        yshift=-4pt,
+        font=\scriptsize
+    },
+    ytick={1,...,#3},
+    yticklabels={#5},
+    yticklabel style={font=\scriptsize},
+    label style={font=\footnotesize},
+    point meta min=0,
+    point meta max=1,
+    colormap={rg}{
+        color(0cm)=(red);
+        color(1cm)=(green)
+    }
+]
+
+\addplot[
+    matrix plot*,
+    mesh/cols=#2,
+    point meta=explicit,
+    draw=black,
+    line width=0.2pt,
+]
+table[
+    x=Xidx,
+    y=Yidx,
+    meta=Pass,
+    col sep=comma
+] {#1};
+
+\end{axis}
+\end{tikzpicture}
+
+\caption{#9}
+\ifstrempty{#8}{}{\label{#8}}
+
+\end{figure}%
+}
